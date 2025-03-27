@@ -24,6 +24,7 @@
       </div>
     </div>
     <script>
+
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -50,15 +51,15 @@
       }
 
       var cloudflareCDN = "https://cdn.x2c.digital/";
-      var loaderUrl = cloudflareCDN + "Hack%20Build.loader.js";
+      var loaderUrl = cloudflareCDN + "FlappyTrump.loader.js";
       var config = {
-        dataUrl: cloudflareCDN + "Hack%20Build.data.unityweb",
-        frameworkUrl: cloudflareCDN + "Hack%20Build.framework.js.unityweb",
-        codeUrl: cloudflareCDN + "Hack%20Build.wasm.unityweb",
+        dataUrl: cloudflareCDN + "FlappyTrump.data.unityweb",
+        frameworkUrl: cloudflareCDN + "FlappyTrump.framework.js.unityweb",
+        codeUrl: cloudflareCDN + "FlappyTrump.wasm.unityweb",
         streamingAssetsUrl: cloudflareCDN + "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "FlappyBirdTrump",
-        productVersion: "1.0.7",
+        productVersion: "1.0.9",
         showBanner: unityShowBanner,
       };
 
@@ -92,6 +93,7 @@
       };
 
       document.body.appendChild(script);
+
     </script>
   </body>
 </html>
