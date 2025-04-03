@@ -3,13 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | FlappyBirdTrump</title>
+    <title>Flappy Trump</title>
+
+    <!-- Twitter Player Card Meta Tags -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@KshitijGajapure">
+    <meta name="twitter:title" content="Flappy Trump">
+    <meta name="twitter:description" content="Play Flappy Trump directly in your X feed!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Kshitij08/FlappyTrumpMonad/main/Flappy%20Trump%20Icon.png">
+    <meta name="twitter:player" content="https://flappy-trump-beta.vercel.app/">
+    <meta name="twitter:player:width" content="466">
+    <meta name="twitter:player:height" content="262">
+
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -20,7 +31,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">FlappyBirdTrump</div>
+        <div id="unity-build-title">Flappy Trump</div>
       </div>
     </div>
     <script>
@@ -57,11 +68,27 @@
         codeUrl: cloudflareCDN + "FlappyTrump.wasm.unityweb",
         streamingAssetsUrl: cloudflareCDN + "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "FlappyBirdTrump",
+        productName: "Flappy Trump",
         productVersion: "1.0.11",
         showBanner: unityShowBanner,
       };
 
+      // Set canvas size based on whether it's inside Twitter iframe or not
+      if (window.self !== window.top) {
+        // Inside iframe (Twitter card)
+        canvas.style.width = "466px";
+        canvas.style.height = "262px";
+        canvas.width = 466;
+        canvas.height = 262;
+      } else {
+        // Full browser
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
+        canvas.width = 1280;
+        canvas.height = 720;
+      }
+
+      // Mobile adjustments
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -69,9 +96,6 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
-      } else {
-        canvas.style.width = "1280px";
-        canvas.style.height = "720px";
       }
 
       loadingBar.style.display = "block";
