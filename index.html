@@ -15,7 +15,6 @@
     <meta name="twitter:player:width" content="466">
     <meta name="twitter:player:height" content="262">
 
-
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -50,10 +49,10 @@
         var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        if (type === 'error') div.style = 'background: red; padding: 10px;';
         else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          if (type === 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -74,23 +73,18 @@
         showBanner: unityShowBanner,
       };
 
-
-      // Set canvas size based on whether it's inside Twitter iframe or not
+      // Set canvas size conditionally for Twitter embed
       if (window.self !== window.top) {
-        // Inside iframe (Twitter card)
         canvas.style.width = "466px";
         canvas.style.height = "262px";
         canvas.width = 466;
         canvas.height = 262;
       } else {
-        // Full browser
         canvas.style.width = "1280px";
         canvas.style.height = "720px";
         canvas.width = 1280;
         canvas.height = 720;
       }
-
-
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement('meta');
