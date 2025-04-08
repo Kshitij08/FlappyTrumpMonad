@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Flappy Trump</title>
+    <title>Unity WebGL Player | FlappyTrump</title>
 
     <!-- Twitter Player Card Meta Tags -->
     <meta name="twitter:card" content="player">
@@ -14,6 +14,7 @@
     <meta name="twitter:player" content="https://flappy-trump-beta.vercel.app/">
     <meta name="twitter:player:width" content="466">
     <meta name="twitter:player:height" content="262">
+
 
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -31,7 +32,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Flappy Trump</div>
+        <div id="unity-build-title">FlappyTrump</div>
       </div>
     </div>
     <script>
@@ -61,17 +62,18 @@
       }
 
       var cloudflareCDN = "https://cdn.x2c.digital/";
-      var loaderUrl = cloudflareCDN + "FlappyTrump.loader.js";
+      var loaderUrl = cloudflareCDN + "Flappy%20Trump.loader.js";
       var config = {
-        dataUrl: cloudflareCDN + "FlappyTrump.data.unityweb",
-        frameworkUrl: cloudflareCDN + "FlappyTrump.framework.js.unityweb",
-        codeUrl: cloudflareCDN + "FlappyTrump.wasm.unityweb",
+        dataUrl: cloudflareCDN + "Flappy%20Trump.data.unityweb",
+        frameworkUrl: cloudflareCDN + "Flappy%20Trump.framework.js.unityweb",
+        codeUrl: cloudflareCDN + "Flappy%20Trump.wasm.unityweb",
         streamingAssetsUrl: cloudflareCDN + "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Flappy Trump",
-        productVersion: "1.0.11",
+        companyName: "X2C",
+        productName: "FlappyTrump",
+        productVersion: "1.0.13",
         showBanner: unityShowBanner,
       };
+
 
       // Set canvas size based on whether it's inside Twitter iframe or not
       if (window.self !== window.top) {
@@ -88,7 +90,8 @@
         canvas.height = 720;
       }
 
-      // Mobile adjustments
+
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement('meta');
         meta.name = 'viewport';
